@@ -223,6 +223,68 @@
     transform: translateY(-2px);
 }
 
+/* Top Contributors Grid Layout */
+.contributors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Individual contributor card */
+.contributor-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform .2s ease;
+}
+
+.contributor-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Fix image sizes */
+.contributor-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;     /* Makes images equal */
+    margin-bottom: 10px;
+}
+
+/* Improve contributor card text styling */
+.cont-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cont-commits-badge {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+.cont-commits-badge::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 40%;
+    background: #e5e5e5;
+    margin: 6px auto;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .terms-container {

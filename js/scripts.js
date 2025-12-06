@@ -80,22 +80,273 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add loading state for buttons
-    document.querySelectorAll('.btn-primary, .btn-cyber').forEach(button => {
-        button.addEventListener('click', function(e) {
-            if (this.getAttribute('href') === '#' || this.type === 'submit') {
-                const originalText = this.innerHTML;
-                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-                this.disabled = true;
+    // Initialize loading states
+    initializeLoadingStates();
+
+    // Demo: Add loading to specific buttons
+    setupDemoLoadingButtons();
+
+    // Remove old loading state handlers to avoid duplicates
+    removeOldLoadingHandlers();
+
+    console.log('Pixel Phantoms global scripts loaded');
+});
+
+/**
+ * Remove old loading state handlers to prevent duplicate functionality
+ */
+function removeOldLoadingHandlers() {
+    // Remove old button click handlers from the original code
+    const oldButtons = document.querySelectorAll('.btn-primary, .btn-cyber');
+    oldButtons.forEach(button => {
+        // Clone the button to remove all event listeners
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+    });
+}
+
+/**
+ * Initialize loading states functionality
+ */
+function initializeLoadingStates() {
+    // Check if loadingStates.js is loaded
+    if (typeof window.loadingStates === 'undefined') {
+        console.warn('Loading states not initialized. Make sure loading-states.js is loaded.');
+        return;
+    }
+
+    // Add loading to login buttons
+    document.querySelectorAll('.login-btn, .btn-login').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            window.loadingStates.showButtonLoading(this, {
+                text: 'Signing in...',
+                duration: 2000
+            });
+        });
+    });
+
+    // Add loading to form submissions
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            if (this.classList.contains('no-loading')) return;
+            
+            window.loadingStates.showFormLoading(this);
+            
+            // Simulate API call
+            setTimeout(() => {
+                window.loadingStates.hideFormLoading(this);
                 
-                // Reset after 3 seconds (for demo)
+                // Show success
+                const submitBtn = this.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    window.loadingStates.showButtonSuccess(submitBtn, 'Submitted!', 2000);
+                }
+            }, 2500);
+            
+            e.preventDefault();
+        });
+    });
+
+    // Add loading to leaderboard refresh
+    document.querySelectorAll('.refresh-leaderboard, .btn-refresh').forEach(btn => {
+        btn.addEventListener('click', function() {
+            window.loadingStates.showButtonLoading(this, {
+                text: 'Refreshing...',
+                duration: 1500
+            });
+            
+            // Show skeleton loading
+            const leaderboardContainer = document.querySelector('.lb-rows-container');
+            if (leaderboardContainer) {
+                window.loadingStates.showSkeletonLoading(leaderboardContainer, 5, 'card');
+                
                 setTimeout(() => {
-                    this.innerHTML = originalText;
-                    this.disabled = false;
-                }, 3000);
+                    window.loadingStates.hideSkeletonLoading(leaderboardContainer);
+                    window.loadingStates.showButtonSuccess(this, 'Updated!', 1000);
+                }, 1500);
             }
         });
     });
 
-    console.log('Pixel Phantoms global scripts loaded');
-});
+    // Add loading to project filters
+    document.querySelectorAll('.btn-glitch-filter, .filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (this.classList.contains('active')) return;
+            
+            window.loadingStates.showButtonLoading(this, {
+                text: 'Filtering...',
+                duration: 1000
+            });
+            
+            // Simulate filter loading
+            const projectGrid = document.querySelector('.projects-grid');
+            if (projectGrid) {
+                projectGrid.style.opacity = '0.5';
+                projectGrid.style.transition = 'opacity 0.3s';
+                
+                setTimeout(() => {
+                    projectGrid.style.opacity = '1';
+                }, 1000);
+            }
+        });
+    });
+}
+
+/**
+ * Setup demo loading buttons for testing
+ */
+function setupDemoLoadingButtons() {
+    // Add demo buttons to various pages
+    if (document.querySelector('.btn-cyber-demo') || document.querySelector('.loading-demo')) return;
+    
+    // Create demo section if not exists
+    const demoSection = document.createElement('div');
+    demoSection.className = 'loading-demo';
+    demoSection.style.cssText = `
+        padding: 20px;
+        margin: 30px auto;
+        max-width: 800px;
+        background: var(--card-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        text-align: center;
+    `;
+    
+    demoSection.innerHTML = `
+        <h3 style="margin-top: 0; color: var(--accent-color);">Loading States Demo</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 20px;">Test different loading states:</p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <button class="btn-primary demo-loading" data-type="success">Success Demo</button>
+            <button class="btn-secondary demo-loading" data-type="error">Error Demo</button>
+            <button class="btn-cyber demo-loading" data-type="loading">Loading Spinner</button>
+            <button class="btn-outline demo-loading" data-type="progress">Progress Bar</button>
+        </div>
+        <div id="progress-demo" class="progress-container" style="margin-top: 20px;"></div>
+    `;
+    
+    // Insert demo section before footer
+    const footer = document.querySelector('.site-footer');
+    if (footer) {
+        footer.parentNode.insertBefore(demoSection, footer);
+    }
+    
+    // Add demo button listeners
+    document.querySelectorAll('.demo-loading').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const type = this.getAttribute('data-type');
+            
+            switch(type) {
+                case 'success':
+                    if (window.loadingStates) {
+                        window.loadingStates.showButtonSuccess(this, 'Action Successful!', 2000);
+                    } else {
+                        this.innerHTML = '<span class="success-checkmark"></span>Success!';
+                        this.classList.add('btn-success');
+                        setTimeout(() => {
+                            this.innerHTML = 'Success Demo';
+                            this.classList.remove('btn-success');
+                        }, 2000);
+                    }
+                    break;
+                    
+                case 'error':
+                    if (window.loadingStates) {
+                        window.loadingStates.showButtonError(this, 'Something went wrong', 2500);
+                    } else {
+                        this.innerHTML = '<span class="error-cross"></span>Error!';
+                        this.classList.add('btn-error');
+                        setTimeout(() => {
+                            this.innerHTML = 'Error Demo';
+                            this.classList.remove('btn-error');
+                        }, 2500);
+                    }
+                    break;
+                    
+                case 'loading':
+                    if (window.loadingStates) {
+                        window.loadingStates.showButtonLoading(this, {
+                            text: 'Processing...',
+                            duration: 3000
+                        });
+                        
+                        setTimeout(() => {
+                            window.loadingStates.hideButtonLoading(this);
+                            window.loadingStates.showButtonSuccess(this, 'Done!', 1500);
+                        }, 3000);
+                    } else {
+                        this.innerHTML = '<span class="spinner"></span>Loading...';
+                        this.classList.add('btn-loading');
+                        setTimeout(() => {
+                            this.innerHTML = 'Loading Spinner';
+                            this.classList.remove('btn-loading');
+                        }, 3000);
+                    }
+                    break;
+                    
+                case 'progress':
+                    const progress = window.loadingStates ? 
+                        window.loadingStates.showProgress('progress-demo') :
+                        showProgressFallback('progress-demo');
+                    
+                    if (progress) {
+                        let current = 0;
+                        const interval = setInterval(() => {
+                            current += 10;
+                            if (window.loadingStates) {
+                                progress.update(current);
+                            } else {
+                                updateProgressFallback('progress-demo', current);
+                            }
+                            
+                            if (current >= 100) {
+                                clearInterval(interval);
+                                setTimeout(() => {
+                                    if (window.loadingStates) {
+                                        progress.hide();
+                                    } else {
+                                        hideProgressFallback('progress-demo');
+                                    }
+                                    if (window.loadingStates) {
+                                        window.loadingStates.showButtonSuccess(this, 'Upload Complete!', 1500);
+                                    }
+                                }, 500);
+                            }
+                        }, 200);
+                    }
+                    break;
+            }
+        });
+    });
+}
+
+// Fallback functions if loadingStates.js not loaded
+function showProgressFallback(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return null;
+    
+    container.style.display = 'block';
+    container.innerHTML = '<div class="progress-bar"></div>';
+    
+    return {
+        update: (progress) => {
+            const bar = container.querySelector('.progress-bar');
+            if (bar) bar.style.width = `${progress}%`;
+        },
+        hide: () => {
+            container.style.display = 'none';
+        }
+    };
+}
+
+function updateProgressFallback(containerId, progress) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    const bar = container.querySelector('.progress-bar');
+    if (bar) bar.style.width = `${progress}%`;
+}
+
+function hideProgressFallback(containerId) {
+    const container = document.getElementById(containerId);
+    if (container) container.style.display = 'none';
+}

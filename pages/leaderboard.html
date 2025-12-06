@@ -49,6 +49,9 @@
                         <span class="label">DATA_STREAM</span>
                         <span class="val blue">SYNCED</span>
                     </div>
+                    <button class="btn-refresh" id="refresh-leaderboard" data-loading="true">
+                        <i class="fas fa-sync-alt"></i> REFRESH
+                    </button>
                 </div>
             </header>
 
@@ -109,7 +112,7 @@
                                     <i class="fas fa-search"></i>
                                     <input type="text" id="search-input" placeholder="Filter agents...">
                                 </div>
-                                <button class="export-btn" id="export-leaderboard">
+                                <button class="export-btn" id="export-leaderboard" data-loading="true">
                                     <i class="fas fa-download"></i> Export
                                 </button>
                             </div>
@@ -243,7 +246,7 @@
                             <select id="compare-user-select">
                                 <option value="">Select a user to compare</option>
                                 </select>
-                            <button id="compare-btn" class="btn-primary">Compare</button>
+                            <button id="compare-btn" class="btn-primary" data-loading="true">Compare</button>
                         </div>
                         <div class="comparison-results" id="comparison-results">
                             </div>
@@ -266,7 +269,7 @@
                 </div>
                 <div class="profile-actions">
                     <button class="btn-secondary" onclick="resetProfileData()"><i class="fas fa-undo"></i> Reset</button>
-                    <button class="btn-primary" onclick="saveProfileData()"><i class="fas fa-save"></i> Save Protocols</button>
+                    <button class="btn-primary" onclick="saveProfileData()" data-loading="true"><i class="fas fa-save"></i> Save Protocols</button>
                 </div>
             </div>
         </div>

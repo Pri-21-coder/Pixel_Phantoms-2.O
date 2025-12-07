@@ -24,7 +24,6 @@ async function loadEvents() {
         renderPage(1);
 
     } catch (error) {
-        console.error(error);
         container.innerHTML = `<p class="error-msg">Unable to load events 😢</p>`;
     }
 }

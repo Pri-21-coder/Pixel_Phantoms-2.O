@@ -1,0 +1,75 @@
+/* python-road.css */
+:root {
+    --python-blue: #3776ab;
+    --python-yellow: #ffd43b;
+    --glow: 0 0 15px rgba(55, 118, 171, 0.4);
+}
+
+.roadmap-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.roadmap-spine {
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--python-blue), var(--python-yellow));
+    transform: translateX(-50%);
+}
+
+.chapter-node {
+    position: relative;
+    width: 45%;
+    margin-bottom: 40px;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chapter-node.left { float: left; clear: both; text-align: right; }
+.chapter-node.right { float: right; clear: both; text-align: left; }
+
+.toggle-btn {
+    background: none;
+    border: 1px solid var(--python-yellow);
+    color: var(--python-yellow);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.toggle-btn.active { transform: rotate(45deg); background: var(--python-yellow); color: #000; }
+
+.chapter-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    border-top: 0px solid transparent;
+}
+
+.chapter-details.open {
+    max-height: 500px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #222;
+}
+
+.module-link {
+    display: block;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px 0;
+}
+
+.module-link:hover { color: var(--python-blue); text-shadow: var(--glow); }

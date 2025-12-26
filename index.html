@@ -187,45 +187,43 @@
           </h2>
 
           <div class="skill-path-wrapper">
-            <div class="skill-node reveal-node">
+            <a href="pages/python-road.html" class="skill-node reveal-node">
               <div class="node-icon">
                 <i class="fab fa-python" aria-hidden="true"></i>
               </div>
               <h4>Python_Mastery</h4>
               <span class="node-level">Lvl 1</span>
-            </div>
-
+            </a>
+            
             <div class="connector reveal-node" aria-hidden="true"></div>
 
-            <div class="skill-node reveal-node">
+            <a href="pages/react-road.html" class="skill-node reveal-node">
               <div class="node-icon">
                 <i class="fab fa-react" aria-hidden="true"></i>
               </div>
               <h4>React_Core</h4>
               <span class="node-level">Lvl 2</span>
-            </div>
+            </a>
 
             <div class="connector reveal-node" aria-hidden="true"></div>
 
-            <div class="skill-node reveal-node">
+            <a href="pages/ai-roadmap.html" class="skill-node reveal-node">
               <div class="node-icon">
                 <i class="fas fa-robot" aria-hidden="true"></i>
               </div>
               <h4>AI_Neural_Nets</h4>
               <span class="node-level">Lvl 3</span>
-            </div>
+            </a>
 
             <div class="connector reveal-node" aria-hidden="true"></div>
 
-            <div class="skill-node reveal-node">
+            <a href="pages/system-design-road.html" class="skill-node reveal-node">
               <div class="node-icon">
-                <i class="fas fa-network-wired" aria-hidden="true"></i>
+              <i class="fab fa-python" aria-hidden="true"></i>
               </div>
               <h4>System_Arch</h4>
               <span class="node-level">Lvl 4</span>
-            </div>
-          </div>
-
+            </a>
           <div class="center-btn">
             <a href="events.html" class="btn-hollow">Browse All Modules</a>
           </div>
@@ -653,6 +651,56 @@
 
 <script src="js/feedback.js"></script>
 <script src="js/scroll-progress.js"></script>
+
+<div id="feedback-widget">
+
+  <button id="feedback-toggle" style="position:fixed; right:30px; bottom:100px;">
+  💬
+</button>
+
+
+  <div id="feedback-panel">
+
+    <div class="ff-header">
+      <h3>Send Feedback</h3>
+      <button id="feedback-close" class="ff-close">✕</button>
+    </div>
+
+    <form id="feedback-form">
+
+      <label>Your Name</label>
+      <input type="text" name="username" required />
+
+      <label>Your Email</label>
+      <input type="email" name="email" required />
+
+      <label>Your Suggestion</label>
+      <textarea name="message" required></textarea>
+
+      <div class="ff-rating">
+        <span class="rating-label">Rating</span>
+
+        <div id="star-rating">
+          <button type="button" class="star">★</button>
+          <button type="button" class="star">★</button>
+          <button type="button" class="star">★</button>
+          <button type="button" class="star">★</button>
+          <button type="button" class="star">★</button>
+        </div>
+      </div>
+
+      <div class="ff-actions">
+        <button type="submit" class="btn-cyber small">Submit</button>
+      </div>
+
+      <p id="feedback-status" class="ff-status"></p>
+
+    </form>
+  </div>
+</div>
+
+<script src="js/feedback-widget.js"></script>
+
 
 </body>
 </html>

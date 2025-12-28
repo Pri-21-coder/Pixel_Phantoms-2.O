@@ -105,11 +105,12 @@ main {
     /* UPDATED: Uses theme variables for gradient */
     background: radial-gradient(circle at center, var(--bg-secondary) 0%, var(--bg-primary) 100%);
     border-bottom: 1px solid var(--border-color); /* UPDATED */
-    padding-top: 60px;
+    padding-top: 0; /* Removed - main element now has padding */
     padding-bottom: 40px;
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+    margin-top: 0;
 }
 
 .grid-overlay {
@@ -1261,13 +1262,13 @@ main {
     /* Enhanced Hero Section Mobile Responsiveness */
     .hero-section {
         min-height: 100vh;
-        padding: 80px 15px 40px;
+        padding: 0 15px 40px; /* Top padding handled by main */
     }
     
     .hero-content {
         padding: 0 15px;
         max-width: 100%;
-        margin-top: -30px;
+        margin-top: 0;
     }
     
     .terminal-box {
@@ -1286,12 +1287,12 @@ main {
     /* Extra Small Mobile Devices */
     .hero-section {
         min-height: 100vh;
-        padding: 60px 10px 30px;
+        padding: 0 10px 30px; /* Top padding handled by main */
     }
     
     .hero-content {
         padding: 0 10px;
-        margin-top: -40px;
+        margin-top: 0;
     }
     
     .hero-glitch {
@@ -1339,11 +1340,11 @@ main {
 @media (max-width: 375px) {
     /* iPhone SE and smaller devices */
     .hero-section {
-        padding: 50px 8px 25px;
+        padding: 0 8px 25px; /* Top padding handled by main */
     }
     
     .hero-content {
-        margin-top: -50px;
+        margin-top: 0;
     }
     
     .hero-glitch {

@@ -325,3 +325,70 @@
 .form-group input[type="date"] {
     cursor: pointer;
 }
+
+/* Register button for events*/
+
+.event-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-register {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.btn-register:hover {
+  background: #00ff88;
+  color: #000;
+}
+
+.countdown-note {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/*Register button*/
+
+.event-register {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-register {
+  padding: 10px 22px;
+  font-family: "JetBrains Mono", monospace;
+  background-color: #00ff99;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-register:hover {
+  transform: scale(1.05);
+}
+
+.btn-register.disabled {
+  background-color: #555;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-register.disabled {
+  opacity: 0.6;
+  filter: grayscale(100%);
+}
+

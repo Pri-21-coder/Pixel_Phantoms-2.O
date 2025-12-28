@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Phantoms | Global Command Center</title>
     
+    <link rel="stylesheet" href="../css/scroll-progress.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/home-gsap.css">
+    <link rel="stylesheet" href="../css/cursor-effect.css">
     <link rel="stylesheet" href="../css/back-to-top.css">
     
     <link rel="stylesheet" href="../css/leaderboard.css">
@@ -17,6 +18,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="hacker-theme hud-mode">
+    <div id="scroll-progress-container">
+        <div id="scroll-progress-bar"></div>
+    </div>
 
     <!-- SKIP TO CONTENT LINK (ACCESSIBILITY) -->
     <a href="#main-leaderboard" class="skip-to-content" id="skip-link">
@@ -251,7 +255,7 @@
                             <p><strong>Challenge Focus:</strong> Model Deployment & Reinforcement Learning</p>
                             <p class="complexity-level level-high">Complexity: High</p>
                         </a>
-                        <a href="#" class="track-card" data-track="DATA">
+                        <a href="data-analytics-roadmap.html" class="track-card" data-track="DATA">
                             <h4>Discipline Track: DATA</h4>
                             <p><strong>Challenge Focus:</strong> Real-time Stream Processing & Predictive Analytics</p>
                             <p class="complexity-level level-high">Complexity: High</p>
@@ -269,6 +273,16 @@
                         <a href="hardware-roadmap.html" class="track-card new-track" data-track="NEW">
                             <h4>Discipline Track: New Track (suggested)</h4>
                             <p><strong>Challenge Focus:</strong> IoT/Cybersecurity Implementation</p>
+                            <p class="complexity-level level-medium-high">Complexity: Medium/High</p>
+                        </a>
+                        <a href="game-development-roadmap.html" class="track-card new-track" data-track="GAME_DEV_PROTOCOL">
+                            <h4>Discipline Track: New Track (suggested)</h4>
+                            <p><strong>Challenge Focus:</strong> Smart Contract Game Development</p>
+                            <p class="complexity-level level-high">Complexity: Medium/High</p>
+                        </a>
+                        <a href="ui-ux-roadmap.html" class="track-card new-track" data-track="UI_UX_DESIGN">
+                            <h4>Discipline Track: New Track (suggested)</h4>
+                            <p><strong>Challenge Focus:</strong> Designing Intuitive User Interfaces & Enhancing User Experience</p>
                             <p class="complexity-level level-medium-high">Complexity: Medium/High</p>
                         </a>
                     </div>
@@ -616,15 +630,22 @@
     <script src="js/leaderboard-enhanced.js"></script>
     <script src="../js/footer.js"></script>
     <script src="../js/theme.js"></script>
+    <script src="../js/cursor-effect.js"></script>
     <script src="../js/back-to-top.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="../js/leaderboard.js"></script>
     <script src="../js/quick-stats.js"></script>
     <script src="../js/timeline.js"></script>
+    <script src="../js/theme-enhanced.js"></script>
+    <script src="../js/scroll-progress.js"></script>
 
     <script>
         renderNavbar('../');
         renderFooter('../');
     </script>
+
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print This Page
+    </button>
 </body>
 </html>

@@ -2627,7 +2627,6 @@ main:focus {
   }
 }
 
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   #feedback-panel,

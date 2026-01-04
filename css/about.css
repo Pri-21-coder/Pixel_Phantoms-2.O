@@ -545,7 +545,7 @@
     position: relative;
     overflow: hidden;
     min-height: 180px;
-=======
+}
 /* Member Cards with Enhanced Design */
 .member-card {
     background: var(--card-bg);
@@ -845,6 +845,8 @@
 @media (max-width: 900px) {
     .committee-grid {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
 @media (max-width: 992px) {
     .hero-title {
         font-size: 2.8rem;
@@ -948,7 +950,7 @@
         height: 60px;
     }
 }
-
+}
 @media (max-width: 600px) {
     .committee-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -983,6 +985,7 @@
         padding: 25px 15px;
         min-height: 130px;
     }
+}
 }
 
 /* Tablet landscape - 3 column to 2 column transition */
@@ -1178,6 +1181,7 @@
     .mission-description {
         font-size: 0.95rem;
     }
+}
 }
 
 /* Accessibility enhancements */

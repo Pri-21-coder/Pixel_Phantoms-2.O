@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/contributors.css" />
     <link rel="stylesheet" href="../css/home-gsap.css" />
     <link rel="stylesheet" href="../css/back-to-top.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
       rel="stylesheet"
@@ -44,6 +45,7 @@
 
     <!-- ================= MAIN CONTENT ================= -->
     <main class="main-content" id="main-contributors" tabindex="-1">
+      <div class="page-transition-wrapper" data-page="contributors">
       <!-- Page Header -->
       <section class="contributors-section">
         <header class="section-header">
@@ -222,6 +224,7 @@
             </div>
           </div>
         </section>
+      </div>
       </section>
     </main>
 
@@ -283,6 +286,7 @@
     </script>
 
     <!-- Scripts -->
+    <script src="../js/page-transitions.js" defer></script>
     <script src="../js/theme.js"></script>
     <script src="../js/back-to-top.js"></script>
     <script src="../js/contributors.js"></script>

@@ -4,15 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pixel Phantoms | Community</title>
+    <link rel="icon" href="../assets/logo.png" />
 
-    <!-- Styles -->
     <link rel="stylesheet" href="../css/scroll-progress.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/cursor-effect.css" />
     <link rel="stylesheet" href="../css/back-to-top.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
     <link rel="stylesheet" href="../css/community.css" />
-
-    <!-- Fonts & Icons -->
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
       rel="stylesheet"
@@ -22,9 +21,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
-
   <body class="hacker-theme">
-    <!-- Scroll Progress -->
     <div id="scroll-progress-container">
       <div id="scroll-progress-bar"></div>
     </div>
@@ -43,6 +40,7 @@
 
     <!-- ================= MAIN CONTENT ================= -->
     <main class="main-content" id="main-community" tabindex="-1">
+      <div class="page-transition-wrapper" data-page="community">
       <!-- ================= HERO ================= -->
       <section class="community-hero" aria-labelledby="community-hero-title">
         <canvas id="hero-canvas" aria-hidden="true"></canvas>
@@ -182,12 +180,13 @@
           </div>
         </div>
       </section>
+    </div>
     </main>
 
     <div id="footer-placeholder"></div>
-    <script src="js/footer.js"></script>
+    <script src="../js/footer.js"></script>
     <script>
-      const basePath = '';
+      const basePath = '../';
       document.addEventListener('DOMContentLoaded', () => {
         if (typeof renderFooter === 'function') {
           renderFooter(basePath);
@@ -200,6 +199,7 @@
     </script>
 
     <!-- Scripts -->
+    <script src="../js/page-transitions.js" defer></script>
     <script src="../js/theme.js"></script>
     <script src="../js/cursor-effect.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

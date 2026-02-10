@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/cursor-effect.css" />
     <link rel="stylesheet" href="../css/back-to-top.css" />
-
     <link rel="stylesheet" href="../css/join-us.css" />
+    <link rel="stylesheet" href="../css/keyboard-shortcuts.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
@@ -23,6 +23,12 @@
     />
   </head>
   <body class="hacker-theme">
+    <!-- Global Page Loader -->
+<div id="global-loader" class="global-loader hidden" aria-live="polite" aria-label="Loading page">
+  <div class="loader-spinner"></div>
+  <p class="loader-text">Loading...</p>
+</div>
+
     <div id="scroll-progress-container">
       <div id="scroll-progress-bar"></div>
     </div>
@@ -59,10 +65,14 @@
 
       <section class="cyber-steps-section">
         <div class="container">
-          <div class="section-header-terminal">
-            <h2><i class="fas fa-network-wired"></i> CONNECTION_PROTOCOL</h2>
-            <div class="line-scanner"></div>
-          </div>
+          <!-- <div class="section-header-terminal"> -->
+            <h1 
+            class="section-header-glitch glitch-force center-text protocol-title"
+            data-text="CONNECTION_PROTOCOL"
+            >
+            <i class="fas fa-network-wired"></i> CONNECTION_PROTOCOL</h2>
+            <!-- <div class="line-scanner"></div> -->
+          <!-- </div> -->
 
           <div class="join-steps-grid">
             <div class="step-card" data-step="1">
@@ -100,7 +110,7 @@
                 gain role access.
               </p>
               <div class="step-action">
-                <a href="login.html" target="_blank" class="btn-hollow-tech">
+                <a href="login.html" target="_blank" class="btn-glitch-effect">
                   <i class="fas fa-external-link-alt"></i> ACCESS_FORM
                 </a>
               </div>
@@ -121,7 +131,7 @@
                 <a
                   href="https://github.com/sayeeg-11/Pixel_Phantoms"
                   target="_blank"
-                  class="btn-hollow-tech"
+                  class="btn-glitch-effect"
                 >
                   <i class="fab fa-github"></i> FORK_REPO
                 </a>
@@ -167,5 +177,10 @@
 
     <script src="../js/join-us.js"></script>
     <script src="../js/scroll-progress.js"></script>
+
+    <script src="../js/main.js"></script>
+
+    <script src="../js/keyboard-shortcuts.js"></script>
+
   </body>
 </html>

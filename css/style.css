@@ -762,7 +762,11 @@ body.mobile-menu-open {
     }
 
     .theme-label {
-      transition-property: background, border-color, box-shadow, -webkit-background;
+      transition-property:
+        background,
+        border-color,
+        box-shadow,
+        -webkit-background;
     }
   }
 }
@@ -2259,7 +2263,6 @@ body.mobile-menu-open {
   margin-right: 0;
   padding: 0 2rem;
   box-sizing: border-box;
-
 }
 
 .copyright {
@@ -4532,7 +4535,10 @@ code,
 }
 
 .global-loader.hidden {
-  display: none;
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .loader-spinner {

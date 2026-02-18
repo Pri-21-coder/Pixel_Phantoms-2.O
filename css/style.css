@@ -8,6 +8,7 @@
   --text-primary: #333333;
   --text-secondary: #666666;
   --accent-color: #00aaff;
+  --accent-rgb: 0, 170, 255;
   --border-color: rgba(0, 0, 0, 0.1);
   --card-bg: #ffffff;
   --input-bg: #ffffff;
@@ -113,6 +114,7 @@ body.hacker-theme {
   --text-primary: #ffffff;
   --text-secondary: #bbbbbb;
   --accent-color: #00aaff;
+  --accent-rgb: 0, 170, 255;
   --border-color: rgba(255, 255, 255, 0.1);
   --card-bg: #1a1d25;
   --input-bg: #1a1d25;
@@ -3965,7 +3967,7 @@ code,
   position: fixed !important;
   bottom: 20px !important;
   right: 28px !important;
-  z-index: 1000 !important;
+  position: fixed !important;
 }
 
 .footer-container,
